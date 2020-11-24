@@ -1,11 +1,10 @@
-TipoTransacao.create([
-                         { descricao: 'Débito' , natureza: true},
-                         { descricao: 'Boleto' , natureza: false},
-                         { descricao: 'Financiamento' , natureza: false},
-                         { descricao: 'Crédito' , natureza: true},
-                         { descricao: 'Recebimento Empréstimo' , natureza: true},
-                         { descricao: 'Vendas' , natureza: true},
-                         { descricao: 'Recebimento TED' , natureza: true},
-                         { descricao: 'Recebimento DOC' , natureza: true},
-                         { descricao: 'Aluguel' , natureza: false}
-                     ])
+TipoTransacao.create({descricao: 'Débito', natureza: true})
+TipoTransacao.create({descricao: 'Boleto'})
+TipoTransacao.create({descricao: 'Financiamento'})
+TipoTransacao.create({descricao: 'Crédito', natureza: true})
+TipoTransacao.create({descricao: 'Recebimento Empréstimo', natureza: true})
+TipoTransacao.create({descricao: 'Vendas', natureza: true})
+TipoTransacao.create({descricao: 'Recebimento TED', natureza: true})
+TipoTransacao.create({descricao: 'Recebimento DOC', natureza: true})
+TipoTransacao.create({descricao: 'Aluguel'})
+
