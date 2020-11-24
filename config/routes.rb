@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root "transacoes#new"
+
+  resources :transacoes, only: [:new, :create]
+
+  resources :lojas do
+    resources :transacoes, only: :index
+  end
 end

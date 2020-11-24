@@ -1,0 +1,17 @@
+<h1>Upload</h1>
+
+  <%= notice %>
+
+<% if alert %>
+  <%= alert %>
+<% end %>
+
+<div class="clearfix">
+  <div class="float-left"><h1>Upload de arquivo</h1></div>
+</div>
+
+<%= form_with(url: transacoes_path, multipart: true) do |f| %>
+  <%= f.label "Arquivo CNAB" %>
+  <%= f.file_field :arquivo_cnab %>
+  <%= f.submit "Submeter" %>
+<% end %>
