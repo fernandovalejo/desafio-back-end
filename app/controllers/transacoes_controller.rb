@@ -1,19 +1,20 @@
 class TransacoesController < ApplicationController
-
+  before_action :set_loja, only: :index
   before_action :set_service, only: :create
 
+
   def index
-    @transacoes = Transacao.where(loja_id: @loja)
+    @q = Transacao.where(loja: @loja).ransack params[:q]
+    @pagy, @transacoes = pagy(@q.result)
   end
 
   def new
   end
 
   def create
-
     if params[:arquivo_cnab]
       @cnab.carga(params[:arquivo_cnab])
-      redirect_to transacoes_path, notice: "Arquivo importado com sucesso!"
+      redirect_to lojas_path, notice: "Arquivo importado com sucesso!"
     else
       render :new, alert: "É necessário fazer o upload do arquivo!"
     end
@@ -26,7 +27,7 @@ class TransacoesController < ApplicationController
   end
 
   def set_loja
-    @loja = Loja.find(:loja_id)
+    @loja = Loja.find(params[:loja_id])
   end
 
 end

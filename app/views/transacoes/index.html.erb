@@ -1,4 +1,56 @@
-transações
-<% @transacoes.each do |t| %>
-  <%= t.inspect %>
-<% end %>
+<div class="container mt-5 pt-5 ">
+  <div class="row justify-content-center">
+    <div class="col">
+      <div class="card shadow-sm">
+
+        <div class="card-header bg-light ">
+          <div class="row">
+            <div class="col">
+              <h3 class="h-auto pt-1"><strong>Transações</strong></h3>
+            </div>
+            <div class="col text-right">
+              <%= link_to lojas_path, class: "btn btn-light" do %>
+                <strong>Voltar</strong>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <table class="table table-bordered form-group">
+            <thead>
+            <th class="text-left">
+              <%= sort_link(@q, :tipo_transacao_descricao) do %>
+                Tipo
+              <% end %>
+            </th>
+            <th class="text-center">Cartão</th>
+            <th class="text-right">
+              <%= sort_link(@q, :valor) do %>
+                valor
+              <% end %>
+            </th>
+            <th class="text-center">Data/Hora</th>
+            </thead>
+            <tbody>
+            <% @transacoes.each do |t| %>
+              <tr>
+                <td class="text-left"><%= t.tipo_transacao %></td>
+                <td class="text-center"><%= t.cartao %></td>
+                <td class="text-right"><%= t.valor %></td>
+                <td class="text-center"><%= formata_data_hora t.data_hora %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+
+          <%== pagy_bootstrap_nav @pagy %>
+        </div>
+
+        <div class="card-footer text-center text-muted bg-light">
+          <strong>Desafio Back-End</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

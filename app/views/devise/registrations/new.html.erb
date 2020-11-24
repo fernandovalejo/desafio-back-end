@@ -1,0 +1,55 @@
+<div class="container mt-5 pt-5 ">
+  <div class="row justify-content-center">
+    <div class="col-xl-5">
+      <div class="card border-0 shadow-lg">
+
+        <div class="card-header">
+          <div class="row">
+            <div class="col text-center">
+              <h5 class="h-auto pt-1"><strong>Crie sua conta</strong></h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <p class="alert alert-warning border-0">Não compartilhe sua senha com ninguém!</p>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= f.error_notification %>
+
+            <div class="row">
+              <div class="col">
+                <%= f.input :email, required: true, autofocus: true, input_html: {autocomplete: "email"} %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <%= f.input :password, required: true, label: "Senha", hint: ("No mínimo #{@minimum_password_length} caracteres" if @minimum_password_length), input_html: {autocomplete: "new-password"} %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <%= f.input :password_confirmation, required: true, label: "Confirmação de senha", input_html: {autocomplete: "new-password"} %>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col">
+
+                <%= f.button :submit, "Criar minha conta", class: "col  btn-outline-success" %>
+              </div>
+            </div>
+
+          <% end %>
+
+          <%= render "devise/shared/links" %>
+        </div>
+
+        <div class="card-footer text-center text-muted">
+          <strong>Desafio Back-End</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

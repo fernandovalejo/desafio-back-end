@@ -9,4 +9,8 @@ class TipoTransacao < ApplicationRecord
   def descricao=(descricao)
     super descricao = descricao.strip if descricao
   end
+
+  def to_s
+    descricao
+  end
 end
