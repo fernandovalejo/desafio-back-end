@@ -3,6 +3,10 @@ class TipoTransacao < ApplicationRecord
 
   validates_presence_of :descricao, :natureza
   validates :descricao, uniqueness: true
+
   attribute :natureza, :integer
 
+  def descricao=(descricao)
+    super descricao = descricao.strip if descricao
+  end
 end
