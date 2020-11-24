@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tipo_transacao: one
+  loja: one
+  data_hora: 2020-11-23 20:00:52
+  cartao: MyString
+  valor: 9.99
+
+two:
+  tipo_transacao: two
+  loja: two
+  data_hora: 2020-11-23 20:00:52
+  cartao: MyString
+  valor: 9.99

@@ -14,3 +14,7 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+  inflect.irregular 'tipo_transacao', 'tipos_transacoes'
+  inflect.irregular 'transacao', 'transacoes'
+end
